@@ -5,36 +5,40 @@ int getGcd( int aNumber1, int aNumber2 )
     int     sRemainder = 0;
     int     sQuotient = 0;
 
-    if ( aNumber1 > aNumber2 )
-    {
-        sQuotient = sNumber1 / sNumber2;
-        sRemainder = sNumber1 - ( sNumber2 * sQuotient );
-    }
-    else
-    {
-        sQuotient = sNumber2 / sNumber1;
-        sRemainder = sNumber2 - ( sNumber1 * sQuotient );
-    }
+    sQuotient = aNumber1 / aNumber2;
+    sRemainder = aNumber1 - ( aNumber2 * sQuotient );
+
+    printf( "%d =  %d * %d  + %d\n", aNumber1, aNumber2, sQuotient, sRemainder );
 
     if ( sRemainder == 0 )
     {
+        return aNumber1;
     }
     else
     {
-        return sGcd;
-
+        return getGcd( aNumber2, sRemainder );
     }
-
-
 }
 
 int main(int argc, char* argv[])
 {
-    int num1 = 0;
-    int num2 = 0;
+    int sNumber1 = 0;
+    int sNumber2 = 0;
+    int sGcd = 0;
 
-    num1 = atoi( argv[1] );
-    num2 = atoi( argv[2] );
+    sNumber1 = atoi( argv[1] );
+    sNumber2 = atoi( argv[2] );
+
+    if ( sNumber1 > sNumber2 )
+    {
+        sGcd = getGcd( sNumber1, sNumber2 );
+    }
+    else
+    {
+        sGcd = getGcd( sNumber2, sNumber1 );
+    }
+
+    printf( "%d\n", sGcd );
 
     return 0;
 }
