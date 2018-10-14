@@ -94,17 +94,24 @@ bool isAmicableNumber( int    aNumber,
     if ( gDebug == 1 )
         std::cout << sPairNumber << "\n";
 
-    getDivider( sPairNumber,
-                sDivederOfPairNumber );
-    sSum = sumDivider( sDivederOfPairNumber );
-
-    if ( gDebug == 1 )
-        std::cout << sSum << "\n";
-
-    if ( aNumber == ( sSum - sPairNumber ) )
+    if ( sPairNumber != aNumber )
     {
-        aPairNumber = sPairNumber;
-        sIsAmicableNumber = true;
+        getDivider( sPairNumber,
+                sDivederOfPairNumber );
+        sSum = sumDivider( sDivederOfPairNumber );
+
+        if ( gDebug == 1 )
+            std::cout << sSum << "\n";
+
+        if ( aNumber == ( sSum - sPairNumber ) )
+        {
+            aPairNumber = sPairNumber;
+            sIsAmicableNumber = true;
+        }
+        else
+        {
+            sIsAmicableNumber = false;
+        }
     }
     else
     {
