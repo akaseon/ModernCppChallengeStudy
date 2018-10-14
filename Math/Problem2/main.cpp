@@ -12,7 +12,7 @@ int getGcd( int aNumber1, int aNumber2 )
 
     if ( sRemainder == 0 )
     {
-        return aNumber1;
+        return aNumber2;
     }
     else
     {
