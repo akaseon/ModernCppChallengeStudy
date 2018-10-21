@@ -9,5 +9,3 @@ set(CMAKE_INSTALL_PREFIX    ${CMAKE_SOURCE_DIR}/Solved)
 
 include(GetModules)
 
-add_subdirectory(Math)
-add_subdirectory(Language)
