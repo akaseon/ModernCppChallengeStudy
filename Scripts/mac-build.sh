@@ -16,8 +16,9 @@ pushd build;
         BASE_PATH=$( cd ..; pwd; )
 
         PROJECT_NAME=$(
-            find ${BASE_PATH} -name 'Problem'${PROJECT_NO} -type d;
+            find ${BASE_PATH} -name 'Problem'${PROJECT_NO} -type d | grep -v build | grep -v Sovled;
         )
+
         echo 'add_subdirectory('${PROJECT_NAME}' )' >> ../CMakeLists.txt
     else
         echo "add_subdirectory(Math)" >> ../CMakeLists.txt
