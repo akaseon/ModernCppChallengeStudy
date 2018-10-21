@@ -12,7 +12,7 @@ pushd build;
 
     cat ../CMakeheader.cmake > ../CMakeLists.txt;
 
-    if [ IS_ONE_PROJECT = true ]; then
+    if [ ${IS_ONE_PROJECT} = true ]; then
         BASE_PATH=$( cd ..; pwd; )
 
         PROJECT_NAME=$(
